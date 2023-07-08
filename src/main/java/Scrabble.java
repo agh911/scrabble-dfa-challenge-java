@@ -7,6 +7,7 @@ public class Scrabble {
     public Scrabble(String word) {
         this.word = word;
 
+        letterScores = new HashMap<>();
         letterScores.put('A', 1);
         letterScores.put('E', 1);
         letterScores.put('I', 1);
@@ -36,5 +37,21 @@ public class Scrabble {
         letterScores.put('\0', 0);
         letterScores.put('\t', 0);
         letterScores.put('\n', 0);
+    }
+
+    public int score() {
+        if (!isValidWord()) {
+            return 0;
+        }
+        return getScore();
+    }
+
+    private boolean isValidWord() {
+        return !word.isEmpty();
+    }
+
+    private int getScore() {
+        int total = 0;
+        return total;
     }
 }
