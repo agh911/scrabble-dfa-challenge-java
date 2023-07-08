@@ -5,7 +5,7 @@ public class Scrabble {
     private HashMap<Character, Integer> letterScores;
 
     public Scrabble(String word) {
-        this.word = word;
+        this.word = word != null ? word : "";
 
         letterScores = new HashMap<>();
         letterScores.put('A', 1);
