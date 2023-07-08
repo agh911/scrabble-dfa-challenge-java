@@ -5,7 +5,7 @@ public class Scrabble {
     private HashMap<Character, Integer> letterScores;
 
     public Scrabble(String word) {
-        this.word = word != null ? word : "";
+        this.word = word != null ? word.toUpperCase() : "";
 
         letterScores = new HashMap<>();
         letterScores.put('A', 1);
@@ -52,6 +52,9 @@ public class Scrabble {
 
     private int getScore() {
         int total = 0;
+        for(char c : word.toCharArray()) {
+            total += letterScores.get(c);
+        }
         return total;
     }
 }
