@@ -74,6 +74,9 @@ public class Scrabble {
         if(doubleWord) {
             total *= 2;
         }
+        if(tripleWord) {
+            total *= 3;
+        }
         return total;
     }
 }
