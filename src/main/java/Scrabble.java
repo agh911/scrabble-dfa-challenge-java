@@ -2,11 +2,27 @@ import java.util.HashMap;
 
 public class Scrabble {
     private String word;
+    private Character[] doubleLetter;
+    private Character[] tripleLetter;
+    private boolean doubleWord;
+    private boolean tripleWord;
     private HashMap<Character, Integer> letterScores;
 
     public Scrabble(String word) {
         this.word = word != null ? word.toUpperCase() : "";
+        initLetterScores();
+    }
 
+    public Scrabble(String word, Character[] doubleLetter, Character[] tripleLetter, boolean doubleWord, boolean tripleWord) {
+        this.word = word != null ? word.toUpperCase() : "";
+        this.doubleLetter = doubleLetter;
+        this.tripleLetter = tripleLetter;
+        this.doubleWord = doubleWord;
+        this.tripleWord = tripleWord;
+        initLetterScores();
+    }
+
+    private void initLetterScores() {
         letterScores = new HashMap<>();
         letterScores.put('A', 1);
         letterScores.put('E', 1);
@@ -54,6 +70,9 @@ public class Scrabble {
         int total = 0;
         for(char c : word.toCharArray()) {
             total += letterScores.get(c);
+        }
+        if(doubleWord) {
+            total *= 2;
         }
         return total;
     }
