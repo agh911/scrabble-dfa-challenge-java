@@ -104,5 +104,4 @@ public class ScrabbleTest {
 //        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{'A'},false, false);
 //        assertEquals(scrabble.score(), 5);
 //    }
-
 }

@@ -59,24 +59,28 @@ public class Scrabble {
         if (!isValidWord()) {
             return 0;
         }
-        return getScore();
+        int baseScore = baseScore();
+        int totalScore = doubleWord ? doubleWord(baseScore) : tripleWord ? tripleWord(baseScore) : baseScore;
+        return totalScore;
     }
 
     private boolean isValidWord() {
         return !word.isEmpty();
     }
 
-    private int getScore() {
-        int total = 0;
+    private int baseScore() {
+        int score = 0;
         for(char c : word.toCharArray()) {
-            total += letterScores.get(c);
+            score += letterScores.get(c);
         }
-        if(doubleWord) {
-            total *= 2;
-        }
-        if(tripleWord) {
-            total *= 3;
-        }
-        return total;
+        return score;
+    }
+
+    private int doubleWord(int score) {
+        return baseScore() * 2;
+    }
+
+    private int tripleWord(int score) {
+        return baseScore() * 3;
     }
 }
