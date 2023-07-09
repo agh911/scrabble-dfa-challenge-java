@@ -91,13 +91,13 @@ public class ScrabbleTest {
         assertEquals(scrabble.score(), 3);
     }
 
-//    @Test
+    @Test
 //    @Disabled
-//    public void returnsScoreForTripleLetterOnlyOnce() {
-//        Scrabble scrabble = new Scrabble("aa", new Character[]{}, new Character[]{'A'},false, false);
-//        assertEquals(scrabble.score(), 4);
-//    }
-//
+    public void returnsScoreForTripleLetterOnlyOnce() {
+        Scrabble scrabble = new Scrabble("aa", new Character[]{}, new Character[]{'A'},false, false);
+        assertEquals(scrabble.score(), 4);
+    }
+
 //    @Test
 //    @Disabled
 //    public void returnsScoreForDoubleAndTripleLetter() {
