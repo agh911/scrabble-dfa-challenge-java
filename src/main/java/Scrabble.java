@@ -8,6 +8,7 @@ public class Scrabble {
     private boolean doubleWord;
     private boolean tripleWord;
     private HashMap<Character, Integer> letterScores;
+    private HashMap<Character, Boolean> doubleLetterUsed = new HashMap<>();
 
     public Scrabble(String word) {
         this.word = word != null ? word.toUpperCase() : "";
@@ -94,8 +95,9 @@ public class Scrabble {
     }
 
     private int addDoubleLetter(int baseScore, char c) {
-        if(characterIsIncluded(doubleLetter, c)) {
+        if(characterIsIncluded(doubleLetter, c) && !doubleLetterUsed.containsKey(c)) {
             baseScore += letterScores.get(c);
+            doubleLetterUsed.put(c, true);
         }
         return baseScore;
     }
