@@ -59,17 +59,10 @@ public class Scrabble {
     }
 
     public int score() {
-        if (!isValidWord()) {
-            return 0;
-        }
         int baseScore = baseScore();
         int scoreWithLetterBonus = addLetterBonus(baseScore);
-        int totalScore = doubleWord ? doubleWord(scoreWithLetterBonus) : tripleWord ? tripleWord(scoreWithLetterBonus) : scoreWithLetterBonus;
+        int totalScore = (doubleWord ? 2 : 1) * (tripleWord ? 3 : 1) * scoreWithLetterBonus;
         return totalScore;
-    }
-
-    private boolean isValidWord() {
-        return !word.isEmpty();
     }
 
     private int baseScore() {
@@ -78,14 +71,6 @@ public class Scrabble {
             score += letterScores.get(c);
         }
         return score;
-    }
-
-    private int doubleWord(int score) {
-        return baseScore() * 2;
-    }
-
-    private int tripleWord(int score) {
-        return baseScore() * 3;
     }
 
     private int addLetterBonus(int baseScore) {
