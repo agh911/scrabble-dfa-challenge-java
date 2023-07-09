@@ -83,14 +83,14 @@ public class ScrabbleTest {
         assertEquals(scrabble.score(), 3);
     }
 
-//    @Test
+    @Test
 //    @Disabled
-//    public void returnsScoreForTripleLetterWord() {
-//        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;
-//        Scrabble scrabble = new Scrabble("a", new Character[]{}, new Character[]{'A'},false, false);
-//        assertEquals(scrabble.score(), 3);
-//    }
-//
+    public void returnsScoreForTripleLetterWord() {
+        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;
+        Scrabble scrabble = new Scrabble("a", new Character[]{}, new Character[]{'A'},false, false);
+        assertEquals(scrabble.score(), 3);
+    }
+
 //    @Test
 //    @Disabled
 //    public void returnsScoreForTripleLetterOnlyOnce() {

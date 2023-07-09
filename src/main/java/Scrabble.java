@@ -90,6 +90,7 @@ public class Scrabble {
     private int addLetterBonus(int baseScore) {
         for (char c : word.toCharArray()) {
             baseScore = addDoubleLetter(baseScore, c);
+            baseScore = addTripleLetter(baseScore, c);
         }
         return baseScore;
     }
@@ -98,6 +99,13 @@ public class Scrabble {
         if(characterIsIncluded(doubleLetter, c) && !doubleLetterUsed.containsKey(c)) {
             baseScore += letterScores.get(c);
             doubleLetterUsed.put(c, true);
+        }
+        return baseScore;
+    }
+
+    private int addTripleLetter(int baseScore, char c) {
+        if(characterIsIncluded(tripleLetter, c)) {
+            baseScore += letterScores.get(c) * 2;
         }
         return baseScore;
     }
