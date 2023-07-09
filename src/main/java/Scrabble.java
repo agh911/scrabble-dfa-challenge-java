@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Arrays;
 
 public class Scrabble {
     private String word;
@@ -60,7 +61,8 @@ public class Scrabble {
             return 0;
         }
         int baseScore = baseScore();
-        int totalScore = doubleWord ? doubleWord(baseScore) : tripleWord ? tripleWord(baseScore) : baseScore;
+        int scoreWithLetterBonus = addLetterBonus(baseScore);
+        int totalScore = doubleWord ? doubleWord(scoreWithLetterBonus) : tripleWord ? tripleWord(scoreWithLetterBonus) : scoreWithLetterBonus;
         return totalScore;
     }
 
@@ -82,5 +84,23 @@ public class Scrabble {
 
     private int tripleWord(int score) {
         return baseScore() * 3;
+    }
+
+    private int addLetterBonus(int baseScore) {
+        for (char c : word.toCharArray()) {
+            baseScore = addDoubleLetter(baseScore, c);
+        }
+        return baseScore;
+    }
+
+    private int addDoubleLetter(int baseScore, char c) {
+        if(characterIsIncluded(doubleLetter, c)) {
+            baseScore += letterScores.get(c);
+        }
+        return baseScore;
+    }
+
+    private boolean characterIsIncluded(Character[] array, char c) {
+        return array != null && Arrays.asList(array).contains(c);
     }
 }

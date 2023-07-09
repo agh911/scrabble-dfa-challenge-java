@@ -69,12 +69,12 @@ public class ScrabbleTest {
         assertEquals(scrabble.score(), 66);
     }
     // Scrabble (String, Character[] (double letters), Character[], boolean, boolean);
-//    @Test
+    @Test
 //    @Disabled
-//    public void returnsScoreForDoubleLetterWord() {
-//        Scrabble scrabble = new Scrabble("a", new Character[]{'A'}, new Character[]{}, false, false);
-//        assertEquals(scrabble.score(), 2);
-//    }
+    public void returnsScoreForDoubleLetterWord() {
+        Scrabble scrabble = new Scrabble("a", new Character[]{'A'}, new Character[]{}, false, false);
+        assertEquals(scrabble.score(), 2);
+    }
 //
 //    @Test
 //    @Disabled
